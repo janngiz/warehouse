@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -34,6 +36,30 @@ public class FxDealService {
         }
         fxDeal.setId(UUID.randomUUID().toString());
         return fxDealRepository.save(fxDeal);
+    }
+
+    //No rollback allowed, what every rows imported should be saved in DB
+    public List<FxDeal> saveFxDealList(List<FxDeal> fxDealList) {
+        logger.info("Saving the fxDealList : {}", fxDealList);
+        List<FxDeal> savedFxDealList = new ArrayList<>();
+        for (FxDeal fxDeal : fxDealList) {
+            FxDeal savedFxDeal = fxDealSave(fxDeal);
+            if (savedFxDeal != null) {
+                savedFxDealList.add(savedFxDeal);
+            }
+        }
+        return savedFxDealList;
+    }
+
+    private FxDeal fxDealSave(FxDeal fxDeal) {
+        try {
+            logger.info("Saving the fxDeal : {}", fxDeal);
+            fxDealValidation(fxDeal);
+            fxDeal.setId(UUID.randomUUID().toString());
+            return fxDealRepository.save(fxDeal);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public FxDeal findByDealUniqueId(String dealUniqueId) {
