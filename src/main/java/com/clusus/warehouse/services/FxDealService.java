@@ -67,6 +67,11 @@ public class FxDealService {
         return fxDealRepository.findByDealUniqueId(dealUniqueId);
     }
 
+    public List<FxDeal> getAllFxDeals(){
+        logger.info("Getting the fxDeal list.");
+        return fxDealRepository.findAll();
+    }
+
 
     private void fxDealValidation(FxDeal fxDeal) {
         String dealUniqueId = fxDeal.getDealUniqueId();

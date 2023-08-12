@@ -42,4 +42,10 @@ public class FxDealController {
         }
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<FxDeal>> getFxDealList() {
+        List<FxDeal> fxDealList = fxDealService.getAllFxDeals();
+        return ResponseEntity.ok(fxDealList);
+    }
+
 }
