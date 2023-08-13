@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.clusus.warehouse.FxDealControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-08-13T12:15:34" hostname="dewos-HP-Pavilion-Laptop-15-cc1xx" time="0.612">
+  <properties/>
+  <testcase name="testCreateFxDeal()" classname="com.clusus.warehouse.FxDealControllerTest" time="0.599"/>
+  <testcase name="testCreateFxDealList()" classname="com.clusus.warehouse.FxDealControllerTest" time="0.002"/>
+  <testcase name="testGetFxDeal()" classname="com.clusus.warehouse.FxDealControllerTest" time="0.002"/>
+  <testcase name="testGetFxDealList()" classname="com.clusus.warehouse.FxDealControllerTest" time="0.002"/>
+  <testcase name="testGetFxDealNotFound()" classname="com.clusus.warehouse.FxDealControllerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
