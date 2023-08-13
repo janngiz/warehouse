@@ -55,6 +55,12 @@ public class FxDealService {
         try {
             logger.info("Saving the fxDeal : {}", fxDeal);
             fxDealValidation(fxDeal);
+            String id = fxDeal.getDealUniqueId();
+            FxDeal byId = fxDealRepository.findByDealUniqueId(id);
+            if (byId != null) {
+                logger.warn("Fx deal with unique id {} already exists", id);
+                throw new ValidationException("Already exist.");
+            }
             fxDeal.setId(UUID.randomUUID().toString());
             return fxDealRepository.save(fxDeal);
         } catch (Exception e) {

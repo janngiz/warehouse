@@ -1,15 +1,21 @@
 package com.clusus.warehouse.entities;
 
-import javax.persistence.*;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 @Entity
+@Table(name = "fx_deal")
 public class FxDeal {
     @Id
+    @Column(name = "id", length = 36)
     private String id;
 
-    @Column(name = "deal_unique_id")
+    @Column(name = "deal_unique_id", length = 255)
     private String dealUniqueId;
 
     @Column(name = "from_currency_iso_code")

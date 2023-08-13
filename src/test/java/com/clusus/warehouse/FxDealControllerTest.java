@@ -25,7 +25,7 @@ public class FxDealControllerTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         fxDealController = new FxDealController(fxDealService);
     }
 

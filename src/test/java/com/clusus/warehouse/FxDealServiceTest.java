@@ -65,13 +65,14 @@ public class FxDealServiceTest {
 
         List<FxDeal> fxDealList = Arrays.asList(fxDeal1, fxDeal2);
 
-        when(fxDealRepository.saveAll(fxDealList)).thenReturn(fxDealList);
+        when(fxDealRepository.save(any(FxDeal.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         List<FxDeal> savedFxDeals = fxDealService.saveFxDealList(fxDealList);
 
         assertEquals(fxDealList, savedFxDeals);
 
-        verify(fxDealRepository, times(1)).saveAll(fxDealList);
+        verify(fxDealRepository, times(2)).save(any(FxDeal.class));
+
     }
 
     @Test
