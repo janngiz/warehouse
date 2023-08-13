@@ -1,4 +1,3 @@
-
 version: '3'
 services:
   mysql:
@@ -6,9 +5,10 @@ services:
     container_name: mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: fx_deals
+      MYSQL_ROOT_HOST: "%"
     ports:
-      - "3308:3308"
+      - "3308:3306"
     networks:
       - mynetwork
 
@@ -21,7 +21,11 @@ services:
       - mysql
     networks:
       - mynetwork
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/fx_deals?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root_password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
 
 networks:
   mynetwork:
-

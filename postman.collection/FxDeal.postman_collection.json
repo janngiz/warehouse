@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "a055fae9-2ae6-4f17-ae0e-3995d5a47975",
+		"name": "FxDeal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13118440"
+	},
+	"item": [
+		{
+			"name": "Save fxdeal list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"dealUniqueId\" : \"2b733549-d2cc-40f0-b7f3-9bfa9f3c1b00\",\n    \"fromCurrencyIsoCode\" : \"XXX\",\n    \"toCurrencyIsoCode\" : \"PPP\",\n    \"dealTimestamp\" : \"1691821758307\",\n    \"dealAmount\" : \"123.553\"\n},{\n    \"dealUniqueId\" : \"2b733549-d2cc-40f0-b7f3-9bfa9f3c1b89\",\n    \"fromCurrencyIsoCode\" : \"POU\",\n    \"toCurrencyIsoCode\" : \"ISO\",\n    \"dealTimestamp\" : \"1691821758307\",\n    \"dealAmount\" : \"123.553\"\n}]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/fxdeals/save/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fxdeals",
+						"save",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save fxdeal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dealUniqueId\" : \"2b733549-d2cc-40f0-b7f3-9bfa9f3c1b55\",\n    \"fromCurrencyIsoCode\" : \"AAA\",\n    \"toCurrencyIsoCode\" : \"BBB\",\n    \"dealTimestamp\" : \"1691821758307\",\n    \"dealAmount\" : \"123.553\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/fxdeals/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fxdeals",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by deal unique id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/fxdeals/2b733549-d2cc-40f0-b7f3-9bfa9f3c1b00",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fxdeals",
+						"2b733549-d2cc-40f0-b7f3-9bfa9f3c1b00"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all list fxdeals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/fxdeals/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fxdeals",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
